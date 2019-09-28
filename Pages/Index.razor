@@ -1,0 +1,12 @@
+﻿@page "/"
+
+@using BlazorGameOfLife.Data
+@using BlazorGameOfLife.Components
+
+<h1>Game of Life</h1>
+
+<Field GameField=GameField  />
+
+@code {
+    Data.Field GameField = new Data.Field(25, 25);
+}

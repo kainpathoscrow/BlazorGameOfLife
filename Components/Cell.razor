@@ -1,0 +1,23 @@
+﻿@using BlazorGameOfLife.Data
+
+<td class=@("cell " + (CurrentCellStatus == CellStatus.Alive ? "cell-alive" : "cell-dead"))
+    @onclick="onClick"></td>
+
+@code {
+    [Parameter]
+    public CellStatus CurrentCellStatus {get;set; }
+
+    [Parameter]
+    public Action<int, int> SwapCell {get;set; }
+
+    [Parameter]
+    public int X {get;set;}
+
+    [Parameter]
+    public int Y {get;set;}
+
+    private void onClick()
+    {
+        SwapCell(X, Y);
+    }
+}

@@ -1,0 +1,16 @@
+﻿table.field, .cell {
+    border: 1px solid black;
+}
+
+.cell {
+    width: 25px;
+    height: 25px;
+}
+
+.cell-alive {
+    background-color: black;
+}
+
+.cell-dead {
+    background-color: white;
+}

@@ -1,0 +1,35 @@
+﻿@using BlazorGameOfLife.Data
+
+<button class="btn btn-primary" @onclick="MakeTurn">Make turn</button>
+
+<br />
+<hr />
+<br />
+
+<table class="field">
+    @for (int i = 0; i < GameField.Height; i++)
+    {
+        <tr>
+            @for (int j = 0; j < GameField.Width; j++)
+            {
+                <Cell X=i Y=j SwapCell=SwapCell CurrentCellStatus="@(GameField[i, j])" />
+            }
+        </tr>
+    }
+</table>
+
+@code {
+    [Parameter]
+    public Data.Field GameField {get; set; }
+
+    void MakeTurn()
+    {
+        GameField.MakeTurn();
+    }
+
+    void SwapCell(int i, int j)
+    {
+        GameField.SwapCellStatus(i, j);
+        StateHasChanged();
+    }
+}
